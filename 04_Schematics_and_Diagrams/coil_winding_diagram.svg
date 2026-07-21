@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 500" font-family="Helvetica, Arial, sans-serif">
+  <rect x="0" y="0" width="920" height="500" fill="#ffffff"/>
+  <text x="460" y="34" text-anchor="middle" font-size="22" font-weight="bold" fill="#222">Winding a Double-D Search Coil (8&#8243;, ~100 turns each, 30 AWG)</text>
+
+  <!-- ================= PANEL A ================= -->
+  <text x="40" y="70" font-size="17" font-weight="bold" fill="#1f6fc8">Step 1 — Wind each D on a nail jig</text>
+  <rect x="40" y="80" width="380" height="360" rx="6" fill="#f4ecd8" stroke="#b59a6a" stroke-width="2"/>
+  <text x="55" y="100" font-size="12" fill="#8a7a52">plywood board</text>
+
+  <!-- wire bundle: the D outline -->
+  <path d="M200,140 L200,380" fill="none" stroke="#c8721f" stroke-width="8" stroke-linecap="round"/>
+  <path d="M200,140 A120,120 0 0 1 200,380" fill="none" stroke="#c8721f" stroke-width="8"/>
+  <path d="M200,140 L200,380" fill="none" stroke="#e0a060" stroke-width="3"/>
+  <path d="M200,140 A120,120 0 0 1 200,380" fill="none" stroke="#e0a060" stroke-width="3"/>
+
+  <!-- nails -->
+  <g fill="#444">
+    <circle cx="200" cy="140" r="4"/><circle cx="200" cy="180" r="4"/><circle cx="200" cy="220" r="4"/>
+    <circle cx="200" cy="260" r="4"/><circle cx="200" cy="300" r="4"/><circle cx="200" cy="340" r="4"/><circle cx="200" cy="380" r="4"/>
+    <circle cx="231" cy="144" r="4"/><circle cx="277" cy="168" r="4"/><circle cx="309" cy="209" r="4"/>
+    <circle cx="320" cy="260" r="4"/><circle cx="309" cy="311" r="4"/><circle cx="277" cy="352" r="4"/><circle cx="231" cy="376" r="4"/>
+  </g>
+
+  <!-- leads -->
+  <path d="M200,380 L172,470" fill="none" stroke="#c8721f" stroke-width="3"/>
+  <path d="M200,140 L150,150 L168,470" fill="none" stroke="#c8721f" stroke-width="3"/>
+
+  <!-- callouts -->
+  <text x="250" y="255" font-size="14" font-weight="bold" fill="#a85a18">~100</text>
+  <text x="250" y="272" font-size="14" font-weight="bold" fill="#a85a18">turns</text>
+  <text x="330" y="209" font-size="12" fill="#444">&#8592; nails every ~1.5 cm</text>
+  <text x="120" y="465" font-size="12" fill="#a85a18">leads (leave 30 cm each)</text>
+  <text x="200" y="120" text-anchor="middle" font-size="13" fill="#555">flat edge = 8&#8243; (diameter)</text>
+  <text x="330" y="285" font-size="12" fill="#555">arc: 4&#8243; radius</text>
+
+  <!-- ================= PANEL B ================= -->
+  <text x="470" y="70" font-size="17" font-weight="bold" fill="#1f6fc8">Step 2 — Overlap the two D's into a circle</text>
+
+  <!-- slide arrow -->
+  <line x1="600" y1="100" x2="780" y2="100" stroke="#888" stroke-width="2" marker-start="url(#ah)" marker-end="url(#ah)"/>
+  <text x="690" y="92" text-anchor="middle" font-size="13" fill="#666">slide to null</text>
+  <defs>
+    <marker id="ah" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#888"/>
+    </marker>
+  </defs>
+
+  <!-- RX D (green, bulges left) -->
+  <path d="M675,130 A140,140 0 0 0 675,410" fill="none" stroke="#2a9d3a" stroke-width="5"/>
+  <path d="M675,130 L675,410" fill="none" stroke="#2a9d3a" stroke-width="5"/>
+  <!-- TX D (blue, bulges right) -->
+  <path d="M705,130 A140,140 0 0 1 705,410" fill="none" stroke="#1f6fc8" stroke-width="5"/>
+  <path d="M705,130 L705,410" fill="none" stroke="#1f6fc8" stroke-width="5"/>
+
+  <!-- overlap shading -->
+  <rect x="675" y="130" width="30" height="280" fill="#9b59b6" opacity="0.15"/>
+  <text x="690" y="430" text-anchor="middle" font-size="11" fill="#7d3c98">overlap zone</text>
+
+  <text x="545" y="255" font-size="16" font-weight="bold" fill="#2a9d3a">RX</text>
+  <text x="548" y="273" font-size="11" fill="#2a9d3a">&#8594; preamp</text>
+  <text x="820" y="255" font-size="16" font-weight="bold" fill="#1f6fc8">TX</text>
+  <text x="812" y="273" font-size="11" fill="#1f6fc8">&#8594; driver</text>
+
+  <text x="690" y="470" text-anchor="middle" font-size="12" fill="#555">Same plane, flat edges overlapping. Slide one D until RX signal nulls, then epoxy in place.</text>
+
+  <!-- footer -->
+  <text x="460" y="496" text-anchor="middle" font-size="12" fill="#999">Wind both D coils identically. One becomes TX, the other RX. ~52 m of 30 AWG per coil (~105 m total).</text>
+</svg>

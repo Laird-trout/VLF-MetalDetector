@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 780" font-family="Helvetica, Arial, sans-serif">
+  <rect x="0" y="0" width="1060" height="780" fill="#ffffff"/>
+  <text x="530" y="30" text-anchor="middle" font-size="21" font-weight="bold" fill="#222">VLF Detector — TX Driver + RX Preamp + Power  (7.5 kHz induction balance)</text>
+  <text x="530" y="52" text-anchor="middle" font-size="12.5" fill="#777">Coils: TX &amp; RX each ~18 Ω, ~4.5 mH.  Tuning cap 100 nF / ≥250 V film.  ESP32 makes the 7.5 kHz drive; analog on a 9×AA rail.</text>
+
+  <!-- ================= POWER RAILS (horizontal) ================= -->
+  <line x1="300" y1="92"  x2="1010" y2="92"  stroke="#d33"    stroke-width="3"/>
+  <text x="1014" y="96" font-size="12" font-weight="bold" fill="#d33">+13.5 V</text>
+  <line x1="300" y1="116" x2="1010" y2="116" stroke="#e08a1e" stroke-width="3"/>
+  <text x="1014" y="120" font-size="12" font-weight="bold" fill="#c8791b">+5 V</text>
+  <line x1="300" y1="140" x2="1010" y2="140" stroke="#7d3c98" stroke-width="3"/>
+  <text x="1014" y="144" font-size="12" font-weight="bold" fill="#7d3c98">Vgnd 2.5 V</text>
+
+  <!-- ================= POWER GENERATION (left) ================= -->
+  <rect x="40" y="70" width="230" height="360" rx="8" fill="#fbfbfd" stroke="#bbb" stroke-width="1.5"/>
+  <text x="155" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="#555">POWER</text>
+
+  <!-- Battery -->
+  <rect x="70" y="110" width="150" height="60" rx="5" fill="#fdeaea" stroke="#d33" stroke-width="2"/>
+  <text x="145" y="135" text-anchor="middle" font-size="13" font-weight="bold" fill="#a12">9 × AA</text>
+  <text x="145" y="153" text-anchor="middle" font-size="11" fill="#a12">≈ 13.5 V</text>
+  <line x1="180" y1="110" x2="180" y2="92" stroke="#d33" stroke-width="2"/>
+  <circle cx="180" cy="92" r="3.5" fill="#d33"/>
+  <line x1="110" y1="170" x2="110" y2="710" stroke="#333" stroke-width="2"/>
+  <text x="60" y="150" text-anchor="middle" font-size="11" fill="#a12">+</text>
+  <text x="60" y="168" text-anchor="middle" font-size="11" fill="#333">–</text>
+
+  <!-- 78L05 -->
+  <rect x="70" y="210" width="150" height="55" rx="5" fill="#fdf3e6" stroke="#e08a1e" stroke-width="2"/>
+  <text x="145" y="232" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#b56b12">78L05  → +5 V</text>
+  <text x="145" y="250" text-anchor="middle" font-size="10" fill="#b56b12">+ 0.33 µF in, 0.1 µF out</text>
+  <line x1="150" y1="210" x2="150" y2="92" stroke="#d33" stroke-width="1.5"/>
+  <circle cx="150" cy="92" r="3" fill="#d33"/>
+  <line x1="200" y1="210" x2="200" y2="116" stroke="#e08a1e" stroke-width="1.5"/>
+  <circle cx="200" cy="116" r="3" fill="#e08a1e"/>
+
+  <!-- Virtual ground -->
+  <rect x="70" y="300" width="150" height="65" rx="5" fill="#f3edf9" stroke="#7d3c98" stroke-width="2"/>
+  <text x="145" y="322" text-anchor="middle" font-size="12" font-weight="bold" fill="#5e2d73">Vgnd buffer</text>
+  <text x="145" y="339" text-anchor="middle" font-size="10" fill="#5e2d73">2× 10k divider off +5 V</text>
+  <text x="145" y="353" text-anchor="middle" font-size="10" fill="#5e2d73">+ ½ TL072 unity buffer</text>
+  <line x1="150" y1="300" x2="150" y2="116" stroke="#e08a1e" stroke-width="1.5"/>
+  <line x1="200" y1="300" x2="200" y2="140" stroke="#7d3c98" stroke-width="1.5"/>
+  <circle cx="200" cy="140" r="3" fill="#7d3c98"/>
+  <text x="145" y="392" text-anchor="middle" font-size="9.5" fill="#888">signal-chain AC reference</text>
+
+  <!-- ================= ESP32 (center) ================= -->
+  <rect x="330" y="470" width="170" height="180" rx="8" fill="#e9f0fb" stroke="#1f6fc8" stroke-width="2"/>
+  <text x="415" y="497" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f6fc8">ESP32</text>
+  <text x="415" y="514" text-anchor="middle" font-size="10" fill="#1f6fc8">(USB powered, own 3.3 V)</text>
+  <text x="495" y="548" text-anchor="end" font-size="11.5" fill="#222">TX  7.5 kHz  ▶</text>
+  <text x="495" y="590" text-anchor="end" font-size="11.5" fill="#999">demod ref ▶ (later)</text>
+  <text x="495" y="620" text-anchor="end" font-size="11.5" fill="#999">◀ ADC in  (later)</text>
+  <text x="495" y="644" text-anchor="end" font-size="11.5" fill="#222">GND</text>
+  <line x1="500" y1="544" x2="530" y2="544" stroke="#2a9d3a" stroke-width="2"/>
+  <line x1="500" y1="640" x2="530" y2="640" stroke="#333" stroke-width="2"/>
+  <line x1="530" y1="640" x2="530" y2="710" stroke="#333" stroke-width="2"/>
+  <text x="415" y="668" text-anchor="middle" font-size="9.5" fill="#888">shares 0 V ground with analog</text>
+
+  <!-- ================= TX DRIVER (top center-right) ================= -->
+  <rect x="530" y="185" width="470" height="215" rx="8" fill="#fbfbfd" stroke="#bbb" stroke-width="1.5"/>
+  <text x="765" y="205" text-anchor="middle" font-size="13" font-weight="bold" fill="#555">TX DRIVER — series-resonant tank @ 7.5 kHz</text>
+
+  <!-- TC4427 -->
+  <rect x="560" y="230" width="120" height="90" rx="5" fill="#e9f0fb" stroke="#1f6fc8" stroke-width="2"/>
+  <text x="620" y="268" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f6fc8">TC4427</text>
+  <text x="620" y="285" text-anchor="middle" font-size="10" fill="#1f6fc8">A ∥ B (both</text>
+  <text x="620" y="298" text-anchor="middle" font-size="10" fill="#1f6fc8">chans paralleled)</text>
+  <!-- Vdd to 13.5 -->
+  <line x1="620" y1="230" x2="620" y2="92" stroke="#d33" stroke-width="2"/>
+  <circle cx="620" cy="92" r="3.5" fill="#d33"/>
+  <text x="628" y="115" font-size="9.5" fill="#a12">Vdd</text>
+  <!-- GND -->
+  <line x1="620" y1="320" x2="620" y2="710" stroke="#333" stroke-width="2"/>
+  <!-- IN from ESP32 TX -->
+  <line x1="530" y1="544" x2="545" y2="544" stroke="#2a9d3a" stroke-width="2"/>
+  <path d="M545 544 L545 265 L560 265" fill="none" stroke="#2a9d3a" stroke-width="2"/>
+  <text x="553" y="420" font-size="10" fill="#2a9d3a" transform="rotate(-90 553 420)">7.5 kHz square in</text>
+  <!-- OUT -> series cap -> coil -> GND -->
+  <line x1="680" y1="265" x2="740" y2="265" stroke="#333" stroke-width="2"/>
+  <rect x="740" y="250" width="70" height="30" rx="4" fill="#e7f7ea" stroke="#2a9d3a" stroke-width="2"/>
+  <text x="775" y="270" text-anchor="middle" font-size="11" fill="#1e6e2a">100 nF</text>
+  <text x="775" y="243" text-anchor="middle" font-size="9" fill="#1e6e2a">≥250 V film</text>
+  <line x1="810" y1="265" x2="870" y2="265" stroke="#333" stroke-width="2"/>
+  <!-- TX coil symbol -->
+  <path d="M870 265 q10 -14 20 0 q10 -14 20 0 q10 -14 20 0" fill="none" stroke="#7d3c98" stroke-width="2.5"/>
+  <text x="905" y="243" text-anchor="middle" font-size="10" fill="#5e2d73">TX COIL</text>
+  <text x="905" y="300" text-anchor="middle" font-size="9.5" fill="#5e2d73">4.5 mH / 18 Ω</text>
+  <line x1="950" y1="265" x2="965" y2="265" stroke="#333" stroke-width="2"/>
+  <line x1="965" y1="265" x2="965" y2="710" stroke="#333" stroke-width="2"/>
+  <text x="765" y="360" text-anchor="middle" font-size="10.5" fill="#a12">≈0.5 A resonant sine · ~100 V pk across C and L  → that's why the cap must be ≥250 V film</text>
+  <text x="765" y="378" text-anchor="middle" font-size="10" fill="#888">series cap blocks the DC offset; only clean 7.5 kHz AC flows in the coil</text>
+
+  <!-- ================= RX PREAMP (bottom right) ================= -->
+  <rect x="560" y="470" width="440" height="215" rx="8" fill="#fbfbfd" stroke="#bbb" stroke-width="1.5"/>
+  <text x="780" y="490" text-anchor="middle" font-size="13" font-weight="bold" fill="#555">RX PREAMP — low-noise gain ≈ 100×</text>
+
+  <!-- RX coil -->
+  <path d="M585 560 q10 -14 20 0 q10 -14 20 0 q10 -14 20 0" fill="none" stroke="#7d3c98" stroke-width="2.5"/>
+  <text x="615" y="545" text-anchor="middle" font-size="10" fill="#5e2d73">RX COIL</text>
+  <line x1="585" y1="560" x2="585" y2="640" stroke="#7d3c98" stroke-width="1.5"/>
+  <text x="560" y="600" font-size="9" fill="#7d3c98">to Vgnd</text>
+  <circle cx="585" cy="640" r="3" fill="#7d3c98"/>
+  <line x1="585" y1="640" x2="585" y2="620" stroke="#7d3c98" stroke-width="1.5"/>
+  <!-- Vgnd bias rail down -->
+  <path d="M200 140 L200 700" fill="none" stroke="#7d3c98" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="210" y="695" font-size="9" fill="#7d3c98">Vgnd</text>
+
+  <!-- Cin -->
+  <line x1="645" y1="560" x2="670" y2="560" stroke="#333" stroke-width="2"/>
+  <rect x="670" y="547" width="46" height="26" rx="3" fill="#e7f7ea" stroke="#2a9d3a" stroke-width="1.5"/>
+  <text x="693" y="564" text-anchor="middle" font-size="9.5" fill="#1e6e2a">10 nF</text>
+  <line x1="716" y1="560" x2="760" y2="560" stroke="#333" stroke-width="2"/>
+
+  <!-- 1M bias to Vgnd -->
+  <line x1="740" y1="560" x2="740" y2="600" stroke="#333" stroke-width="1.5"/>
+  <rect x="717" y="600" width="46" height="24" rx="3" fill="#fff3d6" stroke="#c8901f" stroke-width="1.5"/>
+  <text x="740" y="617" text-anchor="middle" font-size="9.5" fill="#8a6410">1 MΩ</text>
+  <line x1="740" y1="624" x2="740" y2="660" stroke="#7d3c98" stroke-width="1.5"/>
+  <line x1="740" y1="660" x2="200" y2="660" stroke="#7d3c98" stroke-width="1" stroke-dasharray="4 3"/>
+
+  <!-- Op-amp triangle -->
+  <path d="M780 525 L780 605 L850 565 Z" fill="#e9f0fb" stroke="#1f6fc8" stroke-width="2"/>
+  <text x="805" y="569" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1f6fc8">OPA2134</text>
+  <text x="768" y="548" text-anchor="middle" font-size="12" fill="#1f6fc8">+</text>
+  <text x="768" y="600" text-anchor="middle" font-size="12" fill="#1f6fc8">–</text>
+  <line x1="760" y1="560" x2="780" y2="545" stroke="#333" stroke-width="2"/>
+  <!-- inverting input node -->
+  <line x1="760" y1="585" x2="780" y2="585" stroke="#333" stroke-width="2"/>
+  <!-- output -->
+  <line x1="850" y1="565" x2="920" y2="565" stroke="#333" stroke-width="2"/>
+  <text x="930" y="562" font-size="10.5" fill="#2a9d3a">to demod</text>
+  <text x="930" y="576" font-size="9.5" fill="#999">(next stage)</text>
+
+  <!-- Rf feedback 100k -->
+  <path d="M885 565 L885 515 L800 515" fill="none" stroke="#333" stroke-width="1.5"/>
+  <circle cx="885" cy="565" r="3" fill="#333"/>
+  <rect x="800" y="503" width="50" height="24" rx="3" fill="#fff3d6" stroke="#c8901f" stroke-width="1.5"/>
+  <text x="825" y="520" text-anchor="middle" font-size="9.5" fill="#8a6410">100 kΩ</text>
+  <line x1="800" y1="515" x2="770" y2="515" stroke="#333" stroke-width="1.5"/>
+  <line x1="770" y1="515" x2="770" y2="585" stroke="#333" stroke-width="1.5"/>
+  <circle cx="770" cy="585" r="3" fill="#333"/>
+  <!-- Rg 1k + Cg to Vgnd -->
+  <line x1="770" y1="585" x2="770" y2="620" stroke="#333" stroke-width="1.5"/>
+  <rect x="747" y="620" width="46" height="22" rx="3" fill="#fff3d6" stroke="#c8901f" stroke-width="1.5"/>
+  <text x="770" y="636" text-anchor="middle" font-size="9.5" fill="#8a6410">1 kΩ</text>
+  <rect x="747" y="648" width="46" height="22" rx="3" fill="#e7f7ea" stroke="#2a9d3a" stroke-width="1.5"/>
+  <text x="770" y="664" text-anchor="middle" font-size="9" fill="#1e6e2a">2.2 µF</text>
+  <line x1="770" y1="670" x2="770" y2="678" stroke="#7d3c98" stroke-width="1.5"/>
+  <line x1="770" y1="678" x2="200" y2="678" stroke="#7d3c98" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="905" y="600" text-anchor="middle" font-size="9.5" fill="#888">gain = 1 + 100k/1k ≈ 101</text>
+  <!-- opamp power -->
+  <line x1="815" y1="533" x2="815" y2="116" stroke="#e08a1e" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="820" y="470" font-size="9" fill="#c8791b">+5 V</text>
+
+  <!-- ================= GROUND RAIL ================= -->
+  <line x1="60" y1="710" x2="1000" y2="710" stroke="#333" stroke-width="3"/>
+  <text x="70" y="702" font-size="12" font-weight="bold" fill="#333">0 V GROUND (single, shared)</text>
+  <line x1="520" y1="710" x2="520" y2="726" stroke="#333" stroke-width="2"/>
+  <line x1="505" y1="726" x2="535" y2="726" stroke="#333" stroke-width="2"/>
+  <line x1="510" y1="732" x2="530" y2="732" stroke="#333" stroke-width="2"/>
+  <line x1="514" y1="738" x2="526" y2="738" stroke="#333" stroke-width="2"/>
+
+  <!-- ================= NOTES ================= -->
+  <text x="60" y="762" font-size="11" fill="#666">Power split (locked): 13.5 V feeds ONLY the TX driver; op-amps run on a clean 5 V rail with a 2.5 V virtual ground; everything shares one 0 V. The post-demod DC (later) is scaled to the ESP32's 0–3.3 V ADC — the AC preamp itself does not drive the ADC directly.</text>
+</svg>

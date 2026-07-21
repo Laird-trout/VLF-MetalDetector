@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" font-family="Helvetica, Arial, sans-serif">
+  <rect x="0" y="0" width="720" height="440" fill="#ffffff"/>
+  <text x="360" y="34" text-anchor="middle" font-size="20" font-weight="bold" fill="#222">Inductance-Meter Wiring (ESP32 + 1 resistor + 1 cap + coil)</text>
+  <text x="360" y="56" text-anchor="middle" font-size="13" fill="#777">Powered by the USB cable only — no battery needed. Everything grounds to the ESP32's GND pin.</text>
+
+  <!-- ESP32 box -->
+  <rect x="40" y="120" width="150" height="200" rx="6" fill="#e9f0fb" stroke="#1f6fc8" stroke-width="2"/>
+  <text x="115" y="150" text-anchor="middle" font-size="16" font-weight="bold" fill="#1f6fc8">ESP32</text>
+  <text x="183" y="185" text-anchor="end" font-size="13" fill="#222">GPIO25</text>
+  <text x="183" y="235" text-anchor="end" font-size="13" fill="#222">GPIO34</text>
+  <text x="183" y="285" text-anchor="end" font-size="13" fill="#222">GND</text>
+  <!-- pin stubs -->
+  <line x1="190" y1="180" x2="215" y2="180" stroke="#333" stroke-width="2"/>
+  <line x1="190" y1="230" x2="215" y2="230" stroke="#333" stroke-width="2"/>
+  <line x1="190" y1="280" x2="215" y2="280" stroke="#333" stroke-width="2"/>
+
+  <!-- GPIO25 -> resistor -> node A -->
+  <line x1="215" y1="180" x2="270" y2="180" stroke="#333" stroke-width="2"/>
+  <rect x="270" y="165" width="80" height="30" rx="4" fill="#fff3d6" stroke="#c8901f" stroke-width="2"/>
+  <text x="310" y="185" text-anchor="middle" font-size="13" fill="#8a6410">1 kΩ</text>
+  <line x1="350" y1="180" x2="440" y2="180" stroke="#333" stroke-width="2"/>
+
+  <!-- GPIO34 sense -> node A -->
+  <line x1="215" y1="230" x2="440" y2="230" stroke="#333" stroke-width="2"/>
+  <text x="330" y="223" text-anchor="middle" font-size="12" fill="#2a9d3a">sense wire</text>
+
+  <!-- NODE A vertical bus -->
+  <line x1="440" y1="180" x2="440" y2="230" stroke="#d33" stroke-width="3"/>
+  <circle cx="440" cy="180" r="4" fill="#d33"/>
+  <circle cx="440" cy="230" r="4" fill="#d33"/>
+  <text x="452" y="170" font-size="14" font-weight="bold" fill="#d33">NODE A</text>
+  <text x="452" y="205" font-size="11" fill="#d33">(all 4 meet here)</text>
+
+  <!-- Cap leg -->
+  <line x1="440" y1="195" x2="540" y2="195" stroke="#333" stroke-width="2"/>
+  <circle cx="440" cy="195" r="3.5" fill="#d33"/>
+  <line x1="540" y1="195" x2="540" y2="250" stroke="#333" stroke-width="2"/>
+  <rect x="512" y="250" width="56" height="30" rx="4" fill="#e7f7ea" stroke="#2a9d3a" stroke-width="2"/>
+  <text x="540" y="270" text-anchor="middle" font-size="12" fill="#1e6e2a">0.1µF</text>
+  <text x="575" y="240" font-size="11" fill="#1e6e2a">+ lead to NODE A</text>
+  <text x="575" y="292" font-size="11" fill="#1e6e2a">– (stripe) to GND</text>
+  <line x1="540" y1="280" x2="540" y2="360" stroke="#333" stroke-width="2"/>
+
+  <!-- Coil leg -->
+  <line x1="440" y1="212" x2="650" y2="212" stroke="#333" stroke-width="2"/>
+  <circle cx="440" cy="212" r="3.5" fill="#d33"/>
+  <line x1="650" y1="212" x2="650" y2="250" stroke="#333" stroke-width="2"/>
+  <rect x="618" y="250" width="64" height="30" rx="4" fill="#eee9fb" stroke="#7d3c98" stroke-width="2"/>
+  <text x="650" y="270" text-anchor="middle" font-size="12" fill="#5e2d73">COIL</text>
+  <text x="650" y="298" text-anchor="middle" font-size="10" fill="#5e2d73">either lead</text>
+  <line x1="650" y1="280" x2="650" y2="360" stroke="#333" stroke-width="2"/>
+
+  <!-- Ground rail -->
+  <line x1="230" y1="280" x2="230" y2="360" stroke="#333" stroke-width="2"/>
+  <line x1="215" y1="280" x2="230" y2="280" stroke="#333" stroke-width="2"/>
+  <line x1="150" y1="360" x2="680" y2="360" stroke="#333" stroke-width="3"/>
+  <text x="150" y="352" font-size="12" fill="#333">GND rail</text>
+  <!-- ground symbol -->
+  <line x1="415" y1="360" x2="415" y2="375" stroke="#333" stroke-width="2"/>
+  <line x1="400" y1="375" x2="430" y2="375" stroke="#333" stroke-width="2"/>
+  <line x1="405" y1="382" x2="425" y2="382" stroke="#333" stroke-width="2"/>
+  <line x1="410" y1="389" x2="420" y2="389" stroke="#333" stroke-width="2"/>
+
+  <text x="360" y="420" text-anchor="middle" font-size="12" fill="#999">Coil + cap sit in parallel from NODE A to GND; NODE A is driven through 1 kΩ and read by GPIO34.</text>
+</svg>
